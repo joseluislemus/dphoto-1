@@ -1,59 +1,69 @@
 angular.module('starter.services', [])
 
-.factory("fileFactory", function($q) {
+.factory("FileFactory", function($q) {
 
-    var File = function() { };
-
-    File.prototype = {
-
+   var files = [{   
+    id: 0,
+    name: '..',
+    isDirectory: true,
+    isFile: false
+            },{
+                id: 0,
+                name: 'Ben Sparrow',
+                isDirectory: true,
+                isFile: false
+            }, {
+                id: 0,
+                name: 'Foto',
+                isDirectory: false,
+                isFile: true
+            }, {
+                id: 0,
+                name: 'Ben Sparrow',
+                isDirectory: true,
+                isFile: false
+            }, {
+                id: 0,
+                name: 'Ben Sparrow',
+                isDirectory: true,
+                isFile: false
+            }, {
+                id: 0,
+                name: 'Ben Sparrow',
+                isDirectory: true,
+                isFile: false
+            }, {
+                id: 0,
+                name: 'Ben Sparrow',
+                isDirectory: true,
+                isFile: false
+            } ];
+ var files2 = [{   
+    id: 0,
+    name: '..',
+    isDirectory: true,
+    isFile: false
+            },{   
+    id: 0,
+    name: 'Otros',
+    isDirectory: true,
+    isFile: false
+            }];
+   return {
         getParentDirectory: function(path) {
-            var deferred = $q.defer();
-            window.resolveLocalFileSystemURI(path, function(fileSystem) {
-                fileSystem.getParent(function(result) {
-                    deferred.resolve(result);
-                }, function(error) {
-                    deferred.reject(error);
-                });
-            }, function(error) {
-                deferred.reject(error);
-            });
-            return deferred.promise;
+            return files;
         },
 
         getEntriesAtRoot: function() {
-            var deferred = $q.defer();
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-                var directoryReader = fileSystem.root.createReader();
-                directoryReader.readEntries(function(entries) {
-                    deferred.resolve(entries);
-                }, function(error) {
-                    deferred.reject(error);
-                });
-            }, function(error) {
-                deferred.reject(error);
-            });
-            return deferred.promise;
+           return files;
         },
 
         getEntries: function(path) {
-            var deferred = $q.defer();
-            window.resolveLocalFileSystemURI(path, function(fileSystem) {
-                var directoryReader = fileSystem.createReader();
-                directoryReader.readEntries(function(entries) {
-                    deferred.resolve(entries);
-                }, function(error) {
-                    deferred.reject(error);
-                });
-            }, function(error) {
-                deferred.reject(error);
-            });
-            return deferred.promise;
+            if(path == "..") return files 
+             else return files2;
         }
 
     };
-
-    return File;
-
 })
 
 .factory('Chats', function() {

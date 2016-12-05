@@ -1,9 +1,29 @@
 <ion-view view-title="Preferencias">
   <ion-content>
+      <div class="card">
+  <div class="item item-divider">
+    Control de reproducción
+  </div>
+  <div class="item item-text-wrap">
+       <div class="row">
+            <div class="col"><button class="button ion-ios-rewind" style="font-size:54px"></button></div>
+            <div class="col"><button class="button ion-ios-play" style="font-size:54px"></button></div>
+            <div class="col">  <button class="button ion-ios-fastforward" style="font-size:54px"></button></div>
+        </div>
+  </div>
+    </div>
+    <div class="card">
+  <div class="item item-divider">
+    Opciones de reproducción
+  </div>
+  <div class="item item-text-wrap">
     <ion-list>
     <ion-toggle  ng-model="settings.enableFriends">
         Aleatorio
     </ion-toggle>
     </ion-list>
+  </div>
+</div>
+  
   </ion-content>
 </ion-view>
