@@ -1,0 +1,17 @@
+<ion-view view-title="{{folders.name}}" >
+  <ion-nav-buttons side="right">
+   <!-- Toggle right side menu -->
+   <button menu-toggle="right" class="button button-icon icon ion-ios-paperplane" ng-click="doSlideShow()">Enviar</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-left" ng-repeat="file in folders.children" type="item-text-wrap">
+         {{file.name}}
+          <i ng-show="file.isDirectory" class="icon ion-folder" ng-click="getContents(file.name)"></i>
+          <ion-option-button ng-show="file.isDirectory" class="button-positive" ng-click="doSlideShow()">Enviar</ion-option-button>
+         <i ng-show="file.isFile" class="icon ion-document"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</div>
+</ion-view>

@@ -18,12 +18,14 @@
   </div>
   <div class="item item-text-wrap">
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
+    <ion-toggle  ng-model="settings.random" ng-change="settingsChange()">
         Aleatorio
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.fullScreen" ng-change="settingsChange()">
+        Pantalla Completa
     </ion-toggle>
     </ion-list>
   </div>
 </div>
-  
   </ion-content>
 </ion-view>
