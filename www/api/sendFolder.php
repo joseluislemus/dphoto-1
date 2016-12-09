@@ -2,5 +2,5 @@
     $path = $_POST['path'];
     $fullscreen = $_POST['fullscreen'];
     $random = $_POST['random'];
-    exec('slideshow.sh ' . $path . $fullscreen . $random )
+    echo(exec('slideshow.sh ' . $path . $fullscreen . $random ));
 ?>

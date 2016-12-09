@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
               });
   };
 
-  $scope.doSlideShow = function(path, $http){
+  $scope.doSlideShow = function(path){
         var link = 'api/sendFolder.php';
         $http.post(link, {path : $rootScope.path, random: $rootScope.random , fullScreen: $rootScope.fullScreen}).then(function (res){
             $scope.response = res.data;
@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('SettingsCtrl', function($scope, $rootScope) {
+.controller('SettingsCtrl', function($scope, $rootScope, $http) {
   $scope.settings = {
     random: $rootScope.random ,
     fullScreen : $rootScope.fullScreen 
@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
     $rootScope.fullScreen = $scope.settings.fullScreen;
   }
 
-   $scope.doSlideShow = function(path, $http){
+   $scope.doSlideShow = function(path){
         var link = 'api/sendFolder.php';
         $http.post(link, {path : $rootScope.path, random: $rootScope.random , fullScreen: $rootScope.fullScreen}).then(function (res){
             $scope.response = res.data;
