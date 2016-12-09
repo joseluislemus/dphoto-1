@@ -16,6 +16,7 @@ angular.module('starter.controllers', [])
   $rootScope.path = "/"
   $rootScope.random = true;
   $rootScope.fullScreen = true;
+  $rootScope.time = 30;
   
   $scope.getContents = function(path) {
             if(path == ".."){
@@ -31,7 +32,7 @@ angular.module('starter.controllers', [])
 
   $scope.doSlideShow = function(path){
         var link = 'api/sendFolder.php';
-        $http.post(link, {path : $rootScope.path, random: $rootScope.random , fullScreen: $rootScope.fullScreen}).then(function (res){
+        $http.post(link, {path : $rootScope.path, time: $rootScope.time, random: $rootScope.random , fullScreen: $rootScope.fullScreen}).then(function (res){
             $scope.response = res.data;
         });
     };
@@ -40,17 +41,19 @@ angular.module('starter.controllers', [])
 .controller('SettingsCtrl', function($scope, $rootScope, $http) {
   $scope.settings = {
     random: $rootScope.random ,
-    fullScreen : $rootScope.fullScreen 
+    fullScreen : $rootScope.fullScreen, 
+    time: $rootScope.time
   };
 
   $scope.settingsChange = function() {
     $rootScope.random = $scope.settings.random;
     $rootScope.fullScreen = $scope.settings.fullScreen;
+    $rootScope.time = $scope.settings.time;
   }
 
    $scope.doSlideShow = function(path){
         var link = 'api/sendFolder.php';
-        $http.post(link, {path : $rootScope.path, random: $rootScope.random , fullScreen: $rootScope.fullScreen}).then(function (res){
+        $http.post(link, {path : $rootScope.path, time: $rootScope.time, random: $rootScope.random , fullScreen: $rootScope.fullScreen}).then(function (res){
             $scope.response = res.data;
         });
     };
